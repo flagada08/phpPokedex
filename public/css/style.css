@@ -1,0 +1,20 @@
+body {
+    background-color: hsl(0deg 50.99% 50.39%);
+    font-family: 'Bree Serif', serif;
+}
+
+.navbar {
+    background-color: hsl(0deg 27.27% 91.37%);
+}
+
+.navbar-light .navbar-brand {
+    color: hsl(0deg 55.1% 38.43%);
+}
+
+.card-body {
+    background-color: hsl(0deg 27.27% 91.37%);
+}
+
+.card {
+    background: hsl(0deg 55.1% 38.43%);
+}
