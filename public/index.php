@@ -1,31 +1,19 @@
 <?php
 require '../vendor/autoload.php';
 
-// var_dump($_SERVER);
-
+// Initialisation et affectation de la variable $uri avec 
+// le paramètre REQUEST_URI, issu de la variable PHP réservée
+// $_SERVER, contenant un tableau de différents paramètres
 $uri = $_SERVER['REQUEST_URI'];
-/**
- * DEBUT-TEST
- */
-// if ($uri === '/edsa-pokedex/types') {
-//     require '../app/views/types.php';
-// }
-// elseif ($uri === '/edsa-pokedex/') {
-//     require '../app/views/home.php';
-// } else {
-//     echo 404;
-// }
-/**
- * FIN-TEST
- */
 
 // Initialisation et affectation de la variable $router avec l'objet 
 // (class) AltoRouter
 $router = new AltoRouter();
 
-// Utilisation de la méthode map() sur l'objet (class) AltoRouter 
-// stocké dans la variable $router, afin de lui passer en arguments, 
-// la méthode GET, l'url et le fichier que l'on souhaite retourner
+// Utilisation de la méthode map() de l'objet (class) AltoRouter 
+// stocké précédemment dans la variable $router, afin de lui passer 
+// en arguments, la méthode GET, l'url et le fichier que l'on souhaite 
+// retourner
 $router->map('GET', '/edsa-pokedex/', 'home', 'home');
 $router->map('GET', '/edsa-pokedex/detail', 'detail', 'detail');
 $router->map('GET', '/edsa-pokedex/types', 'types', 'types');
