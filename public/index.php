@@ -1,23 +1,32 @@
 <?php
-require '../vendor/autoload.php';
+// Import de l'autoload.php
+require __DIR__.'/../vendor/autoload.php';
 
 // Initialisation et affectation de la variable $uri avec 
 // le paramètre REQUEST_URI, issu de la variable PHP réservée
-// $_SERVER, contenant un tableau de différents paramètres
+// $_SERVER qui contient un tableau de différents paramètres
 $uri = $_SERVER['REQUEST_URI'];
 
 // Initialisation et affectation de la variable $router avec l'objet 
 // (class) AltoRouter
 $router = new AltoRouter();
 
-// Utilisation de la méthode map() de l'objet (class) AltoRouter 
-// stocké précédemment dans la variable $router, afin de lui passer 
+$router->setBasePath($_SERVER['BASE_URI']);
+
+// Utilisation de la méthode map() de l'objet (class) AltoRouter, 
+// précédemment stocké dans la variable $router afin de lui passer 
 // en arguments, la méthode GET, l'url et le fichier que l'on souhaite 
-// retourner
-$router->map('GET', '/edsa-pokedex/', 'home', 'home');
-$router->map('GET', '/edsa-pokedex/detail', 'detail', 'detail');
-$router->map('GET', '/edsa-pokedex/types', 'types', 'types');
-$router->map('GET', '/edsa-pokedex/type/[*:slug]-[i:id]', 'type', 'type');
+// retourner, puis le nom (optionnel)
+$router->map('GET', '/', [
+    'method' => 'home',
+    'controller' => 'Pokedex\Controllers\MainController'
+], 'home');
+$router->map('GET', '/detail/[*:slug]-[i:id]', 'detail', 'detail');
+$router->map('GET', '/types', [
+    'method' => 'types',
+    'controller' => 'Pokedex\Controllers\MainController'
+], 'types');
+$router->map('GET', '/type/[*:slug]-[i:id]', 'type', 'type');
 
 // Initialisation et affectation de la variable $match 
 // avec la méthode match() de l'objet (class) AltoRouter
@@ -25,25 +34,14 @@ $match = $router->match();
 // Condition qui vérifie que le résultat de la méthode match() 
 // est différent de false
 if ($match !== false) {
-    require '../app/views/elements/header.php';
-    // Condition qui vérifie que le contenu de la variable $match 
-    // peut être appelée comme une fonction, grâce à la fonction PHP : 
-    // is_callable()
-    if (is_callable($match['target'])) {
-        // Fonction call_user_func_array() qui permet d'appeler 
-        // une fonction de rappel (callback) en premier paramètre, 
-        // et un tableau de paramètres, en deuxième paramètre
-        // Argument 1 : la cible, argument 2 : les paramètres
-        call_user_func_array($match['target'], $match['params']);
-    } else {
-        // Initialisation et affectation de la variable $params
-        // afin de passer les paramètres de la méthode match
-        // à la vue appelée grâce au require
-        $params = $match['params'];
-        require "../app/views/{$match['target']}.php";
-    }
-    
-    require '../app/views/elements/footer.php';
+    //
+    $controllerMatch = $match['target']['controller'];
+    $methodMatch = $match['target']['method'];
+    //
+    $controller = new $controllerMatch($router);
+    //
+    $controller->$methodMatch($match['params']);
 } else {
+    // Sinon page 404
     echo 'Ma super 404 - (en construction)';
 }

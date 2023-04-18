@@ -2,32 +2,19 @@
 
 namespace Pokedex\Models;
 
+use PDO;
+use Pokedex\Utils\Database;
+
 class Pokemon {
-    public $id;
-    public $nom;
-    public $pv;
-    public $attaque;
-    public $defense;
-    public $attaque_spe;
-    public $defense_spe;
-    public $vitesse;
-    public $numero;
-    
-    public function __construct(
-        int $pId, string $pNom, int $pPv, 
-        int $pAttaque, int $pDefense, int $pAttaque_spe, 
-        int $pDefense_spe, int $pVitesse, int $pNumero
-    ) {
-        $this->id = $pId;
-        $this->nom = $pNom;
-        $this->pv = $pPv;
-        $this->attaque = $pAttaque;
-        $this->defense = $pDefense;
-        $this->attaque_spe = $pAttaque_spe;
-        $this->defense_spe = $pDefense_spe;
-        $this->vitesse = $pVitesse;
-        $this->numero = $pNumero;
-    }
+    private $id;
+    private $nom;
+    private $pv;
+    private $attaque;
+    private $defense;
+    private $attaque_spe;
+    private $defense_spe;
+    private $vitesse;
+    private $numero;
 
     /**
      * Get the value of id
@@ -207,5 +194,29 @@ class Pokemon {
         $this->numero = $numero;
 
         return $this;
+    }
+
+    /**
+     * Méthode permettant d'obtenir un enregistrement de la table choisie en fonction d'un id
+     *
+     * @return void
+     */
+    public function getOne(){
+        $sql = "SELECT * FROM pokedex WHERE id=".$this->id;
+        $query = Database::getPDO()->prepare($sql);
+        $query->execute();
+        return $query->fetch();    
+    }
+
+    /**
+     * Méthode permettant d'obtenir tous les enregistrements de la table choisie
+     *
+     * @return void
+     */
+    public function getAll(){
+        $sql = "SELECT * FROM pokemon";
+        $query = Database::getPDO()->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);    
     }
 }

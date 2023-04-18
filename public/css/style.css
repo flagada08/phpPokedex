@@ -16,5 +16,6 @@ body {
 }
 
 .card {
+    margin: 3%;
     background: hsl(0deg 55.1% 38.43%);
 }

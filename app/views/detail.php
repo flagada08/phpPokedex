@@ -1,1 +1,1 @@
-<h1>Détails</h1>
+<h1>Détails <?= $params['slug'] ?></h1>
