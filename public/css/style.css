@@ -30,7 +30,7 @@ body {
     text-align: center;
 }
 
-.card-title {
+.card-title, h1 {
     color: hsl(0deg 27.27% 91.37%);
 }
 

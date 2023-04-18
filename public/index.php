@@ -21,7 +21,10 @@ $router->map('GET', '/', [
     'method' => 'home',
     'controller' => 'Pokedex\Controllers\MainController'
 ], 'home');
-$router->map('GET', '/detail/[*:slug]-[i:id]', 'detail', 'detail');
+$router->map('GET', '/detail/[i:id]', [
+    'method' => 'detail',
+    'controller' => 'Pokedex\Controllers\MainController'
+], 'detail');
 $router->map('GET', '/types', [
     'method' => 'types',
     'controller' => 'Pokedex\Controllers\MainController'

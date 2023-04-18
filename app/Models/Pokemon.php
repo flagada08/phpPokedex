@@ -198,14 +198,14 @@ class Pokemon {
 
     /**
      * Méthode permettant d'obtenir un enregistrement de la table choisie en fonction d'un id
-     *
+     * 
      * @return void
      */
-    public function getOne(){
-        $sql = "SELECT * FROM pokedex WHERE id=".$this->id;
+    public function getOne($id) {
+        $sql = "SELECT * FROM pokemon WHERE id=".$id;
         $query = Database::getPDO()->prepare($sql);
         $query->execute();
-        return $query->fetch();    
+        return $query->fetch();
     }
 
     /**
@@ -213,10 +213,10 @@ class Pokemon {
      *
      * @return void
      */
-    public function getAll(){
+    public function getAll() {
         $sql = "SELECT * FROM pokemon";
         $query = Database::getPDO()->prepare($sql);
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);    
+        return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 }
