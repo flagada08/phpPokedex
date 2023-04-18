@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="<?= $_SERVER['BASE_URI'] ?>/css/style.css" />
+    <script src="https://kit.fontawesome.com/5e096bed9b.js" crossorigin="anonymous"></script>
   </head>
 <body>
 <div class="container">
@@ -43,7 +44,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Chercher 151 Pokemons" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
   </div>
 </nav>

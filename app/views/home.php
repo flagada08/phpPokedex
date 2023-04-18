@@ -5,13 +5,7 @@ $listePokemons = $data['listePokemons'];
   <?php foreach ($listePokemons as $pokemon) : ?>
     <div class="card" style="width: 18rem;">
       <img src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $pokemon->getNumero() ?>.png" class="card-img-top" alt="<?= $pokemon->getNom() ?>">
-      <div class="card-body">
-        <h5 class="card-title"><?= $pokemon->getNom() ?></h5>
-        <p class="card-text">PV : <?= $pokemon->getPv() ?></p>
-        <p class="card-text">ATT : <?= $pokemon->getAttaque() ?></p>
-        <p class="card-text">DEF : <?= $pokemon->getDefense() ?></p>
-        <a href="<?= $router->generate('detail') ?>" class="btn btn-primary">Go</a>
-      </div>
+      <h5 class="card-title">#<?= $pokemon->getNumero() ?> <?= $pokemon->getNom() ?></h5>
     </div>
   <?php endforeach; ?>
 </div>
