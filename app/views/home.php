@@ -12,10 +12,10 @@
     );
   ?>
     <div class="card" style="width: 18rem;">
-    <a href="<?= $pokemonURL ?>">
-      <img src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $pokemon->getNumero() ?>.png" class="card-img-top" alt="<?= $pokemon->getNom() ?>" style="padding: 10px;">
-    </a>
-      <h5 class="card-title">#<?= $pokemon->getNumero() ?> <?= $pokemon->getNom() ?></h5>
+      <a href="<?= $pokemonURL ?>">
+        <img src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $pokemon->getNumero() ?>.png" class="card-img-top" alt="<?= $pokemon->getNom() ?>" style="padding: 10px;">
+        <h5 class="card-title">#<?= $pokemon->getNumero() ?> <?= $pokemon->getNom() ?></h5>
+      </a>
     </div>
   <?php endforeach; ?>
 </div>

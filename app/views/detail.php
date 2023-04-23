@@ -7,7 +7,7 @@
 
 <div class="row justify-content-center align-items-center">
 
-  <div class="picture-card col-md-4">
+  <div class="picture-card">
     <img src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $detailPokemon['numero'] ?>.png" class="card-img" alt="<?= $detailPokemon['numero'] ?>" style="padding: 10px;">
   </div>
 

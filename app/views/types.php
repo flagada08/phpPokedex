@@ -2,9 +2,9 @@
     $listeTypes = $data['listeTypes'];
 ?>
 
-<h4>Cliquer sur un type pour voir tous les Pokemons de ce type</h4>
+<h5 class="types-title">Cliquer sur un type pour voir tous les Pokemons de ce type</h5>
 
-<div class="type-card row">
+<div class="types d-flex flex-wrap justify-content-around">
     <?php foreach ($listeTypes as $type) : 
         $typeURL = $router->generate(
             'type',

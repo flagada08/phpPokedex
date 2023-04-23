@@ -5,6 +5,10 @@ body {
     font-family: 'Bree Serif', serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .retour {
     margin: 2.5%;
     display: flex;
@@ -13,7 +17,7 @@ body {
     color: hsl(0deg 27.27% 91.37%)
 }
 
-.retour:hover, .btn-types:hover {
+a:hover, .retour:hover, .btn-types:hover {
     text-decoration: none;
     color: hsl(0deg 39.44% 27.84%);
 }
@@ -43,10 +47,9 @@ body {
     text-align: center;
 }
 
-.card-title, h1, h2, h4 {
+.card-title, h1, h2, h3, h4, h5 {
     margin: 1.5% 0 1.5% 0;
     color: hsl(0deg 27.27% 91.37%);
-    font-weight: bold;
 }
 
 .detail-title {
@@ -54,18 +57,14 @@ body {
 }
 
 .col-md-6 {
-    padding: 2.5%;
     border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.125);
     background-color: hsl(0deg 55.1% 38.43%);
 }
 
 .badge-detail {
     padding: 2.5%;
     font-size: 100%;
-    color: hsl(0deg 27.27% 91.37%);
-}
-
-.btn-types {
     color: hsl(0deg 27.27% 91.37%);
 }
 
@@ -86,6 +85,18 @@ body {
 
 .progress-bar {
     background: hsl(0deg 27.27% 91.37%);
+}
+
+.types-title {
+    text-align: center;
+}
+
+.badge-types {
+    width: 20em;
+}
+
+.btn-types {
+    color: hsl(0deg 27.27% 91.37%);
 }
 
 /* Back to top */
