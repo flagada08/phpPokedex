@@ -1,5 +1,5 @@
 <?php 
-$listePokemons = $data['listePokemons'];
+  $listePokemons = $data['listePokemons'];
 ?>
 
 <div class="row justify-content-center">

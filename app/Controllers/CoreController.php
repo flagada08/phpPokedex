@@ -2,17 +2,17 @@
 
 namespace Pokedex\Controllers;
 
-class CoreController
-{
-    /**
-     * @var AltoRouter
-     */
+/**
+ * Summary of CoreController
+ * @author terence
+ * @copyright (c) 2023
+ */
+class CoreController {
     private $router;
 
     /**
-     * Constructor
-     *
-     * @param AltoRouter $router
+     * Summary of __construct
+     * @param mixed $pRouter
      */
     public function __construct($pRouter)
     {
@@ -20,11 +20,9 @@ class CoreController
     }
 
     /**
-     * Cette fonction permet d'afficher la vue passée en paramètre
-     * avec le header et le footer
-     *
-     * @param string $fichier le nom de la vue à afficher
-     * @param array $data les données à transmettre à la vue. (optionnel)
+     * Cette fonction permet d'afficher la vue passée en paramètre avec le header et le footer
+     * @param string $fichier
+     * @param array $data
      * @return void
      */
     protected function show(string $fichier, array $data = [])

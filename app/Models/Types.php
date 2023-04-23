@@ -2,6 +2,14 @@
 
 namespace Pokedex\Models;
 
+use PDO;
+use Pokedex\Utils\Database;
+
+/**
+ * Summary of Type
+ * @author terence
+ * @copyright (c) 2023
+ */
 class Types {
     private $id, $name, $color;    
 
@@ -63,5 +71,16 @@ class Types {
         $this->color = $color;
 
         return $this;
+    }
+
+    /**
+     * Méthode permettant d'obtenir tous les enregistrements de la table choisie
+     * @return array
+     */
+    public function getAll() {
+        $sql = "SELECT * FROM pokedex.type";
+        $query = Database::getPDO()->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 }

@@ -2,15 +2,11 @@
 // Import de l'autoload.php
 require __DIR__.'/../vendor/autoload.php';
 
-// Initialisation et affectation de la variable $uri avec 
-// le paramètre REQUEST_URI, issu de la variable PHP réservée
-// $_SERVER qui contient un tableau de différents paramètres
-$uri = $_SERVER['REQUEST_URI'];
-
 // Initialisation et affectation de la variable $router avec l'objet 
 // (class) AltoRouter
 $router = new AltoRouter();
 
+// Indique le chemin de base à AltoRouter
 $router->setBasePath($_SERVER['BASE_URI']);
 
 // Utilisation de la méthode map() de l'objet (class) AltoRouter, 
@@ -29,7 +25,10 @@ $router->map('GET', '/types', [
     'method' => 'types',
     'controller' => 'Pokedex\Controllers\MainController'
 ], 'types');
-$router->map('GET', '/type/[*:slug]-[i:id]', 'type', 'type');
+$router->map('GET', '/type/[i:id]', [
+    'method' => 'type',
+    'controller' => 'Pokedex\Controllers\MainController'
+], 'type');
 
 // Initialisation et affectation de la variable $match 
 // avec la méthode match() de l'objet (class) AltoRouter
@@ -44,6 +43,7 @@ if ($match !== false) {
     $controller = new $controllerMatch($router);
     //
     $controller->$methodMatch($match['params']);
+    // var_dump($_SERVER);
 } else {
     // Sinon page 404
     echo 'Ma super 404 - (en construction)';

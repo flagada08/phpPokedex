@@ -5,6 +5,19 @@ body {
     font-family: 'Bree Serif', serif;
 }
 
+.retour {
+    margin: 2.5%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: hsl(0deg 27.27% 91.37%)
+}
+
+.retour:hover, .btn-types:hover {
+    text-decoration: none;
+    color: hsl(0deg 39.44% 27.84%);
+}
+
 .navbar {
     z-index: 1;
     border-radius: 10px;
@@ -30,8 +43,49 @@ body {
     text-align: center;
 }
 
-.card-title, h1 {
+.card-title, h1, h2, h4 {
+    margin: 1.5% 0 1.5% 0;
     color: hsl(0deg 27.27% 91.37%);
+    font-weight: bold;
+}
+
+.detail-title {
+    text-align: center;
+}
+
+.col-md-6 {
+    padding: 2.5%;
+    border-radius: 10px;
+    background-color: hsl(0deg 55.1% 38.43%);
+}
+
+.badge-detail {
+    padding: 2.5%;
+    font-size: 100%;
+    color: hsl(0deg 27.27% 91.37%);
+}
+
+.btn-types {
+    color: hsl(0deg 27.27% 91.37%);
+}
+
+.stats {
+    color: hsl(0deg 27.27% 91.37%);
+}
+
+.stats-progress-bar {
+    display: grid;
+    width: 255px;
+}
+
+.progress {
+    margin-block-end: 1em;
+    height: auto;
+    background: hsl(0deg 39.44% 27.84%);
+}
+
+.progress-bar {
+    background: hsl(0deg 27.27% 91.37%);
 }
 
 /* Back to top */

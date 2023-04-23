@@ -4,8 +4,14 @@ namespace Pokedex\Utils;
 
 use PDO;
 use Exception;
-// Retenir son utilisation  => \Database::getPDO()
+
 // Design Pattern : Singleton
+
+/**
+ * Summary of Database
+ * @author terence
+ * @copyright (c) 2023
+ */
 class Database {
     /** @var PDO */
     private $dbh;

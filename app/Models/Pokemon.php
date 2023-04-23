@@ -5,6 +5,11 @@ namespace Pokedex\Models;
 use PDO;
 use Pokedex\Utils\Database;
 
+/**
+ * Summary of Pokemon
+ * @author terence
+ * @copyright (c) 2023
+ */
 class Pokemon {
     private $id;
     private $nom;
@@ -198,11 +203,11 @@ class Pokemon {
 
     /**
      * Méthode permettant d'obtenir un enregistrement de la table choisie en fonction d'un id
-     * 
-     * @return void
+     * @param mixed $id
+     * @return mixed
      */
     public function getOne($id) {
-        $sql = "SELECT * FROM pokemon WHERE id=".$id;
+        $sql = "SELECT * FROM pokedex.pokemon WHERE id=".$id;
         $query = Database::getPDO()->prepare($sql);
         $query->execute();
         return $query->fetch();
@@ -210,11 +215,10 @@ class Pokemon {
 
     /**
      * Méthode permettant d'obtenir tous les enregistrements de la table choisie
-     *
-     * @return void
+     * @return array
      */
     public function getAll() {
-        $sql = "SELECT * FROM pokemon";
+        $sql = "SELECT * FROM pokedex.pokemon";
         $query = Database::getPDO()->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);
