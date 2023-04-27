@@ -63,6 +63,12 @@ class MainController extends CoreController {
         $type = new Type;
         $typePokemon = $type->getOne($id);
         
-        $this->show('type', ['typePokemon' => $typePokemon]);
+        foreach ($typePokemon as $type) {
+            $type_id = $type->getType_id();
+            $pokemon = new Pokemon;
+            $listePokemonsType[] = $pokemon->getAllByType($type_id);
+        }
+        
+        $this->show('type', ['typePokemon' => $typePokemon, 'listePokemonsType' => $listePokemonsType]);
     }
 }

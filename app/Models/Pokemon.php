@@ -223,4 +223,14 @@ class Pokemon {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
+
+    public function getAllByType($type_id) {
+        $sql = "SELECT * FROM pokedex.pokemon, pokedex.pokemon_type, pokedex.type
+        WHERE pokemon.numero = pokemon_type.pokemon_numero
+        AND pokemon_type.type_id = type.id 
+        AND type.id =".$type_id;
+        $query = Database::getPDO()->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
 }
